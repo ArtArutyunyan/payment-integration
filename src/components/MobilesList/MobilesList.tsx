@@ -1,0 +1,32 @@
+import React from "react";
+
+import MobileItem from "../MobileItem/MobilesItem";
+
+import { IMobileItem } from "../../types/productItems";
+
+import basket from '../../assets/images/basket.png';
+import styles from './MobilesList.module.css';
+
+type Props = {
+  mobiles: Array<IMobileItem>;
+  basketStatus: boolean;
+  toggleBasketStatus: (basketStatus: boolean) => void;
+  addNewProduct: (product: IMobileItem) => void;
+}
+
+const MobilesList = ({ mobiles, basketStatus, addNewProduct, toggleBasketStatus }: Props) => {
+  return (
+    <div className={styles.mobilesList}>
+      <div className={styles.mobilesList__title}>
+        <h2>Каталог товаров</h2>
+        <img src={basket} alt="img" onClick={() => toggleBasketStatus(!basketStatus)} />
+      </div>
+      
+      <div className={styles.mobileList__items}>
+        {mobiles.map((mobile) => <MobileItem key={mobile.id} mobile={mobile} addNewProduct={addNewProduct} /> )}
+      </div>
+    </div>
+  );
+}
+
+export default MobilesList;

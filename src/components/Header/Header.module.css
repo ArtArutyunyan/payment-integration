@@ -1,0 +1,20 @@
+header {
+  background-color: rgb(207, 207, 207);
+  height: 100px;
+}
+
+header div {
+  height: 80px;
+  background-color: rgba(105, 102, 102, 0.575);
+  display: flex;
+  align-items: center;
+  padding-left: 30px;
+}
+
+header .logo {
+  font-weight: 600;
+  font-size: 26px;
+  color: rgb(213, 231, 248);
+  text-shadow: 0 0 2px rgb(40, 144, 241);
+}
+
