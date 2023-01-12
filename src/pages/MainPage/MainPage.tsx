@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, memo }  from "react";
 
 import MobilesList from "../../components/MobilesList/MobilesList";
 import Basket from "../../components/Basket/Basket";
@@ -65,10 +65,10 @@ const MainPage = () => {
   ]
 
   const [basketStatus, toggleBasketStatus] = useState<boolean>(false);
-  // const [basket, ]
+  const [basket, editBasket] = useState<IMobileItem[]>([]);
 
   const addNewProduct = (product: IMobileItem) => {
-    console.log(product);
+    basket.push(product);
   }
 
   return (
@@ -79,9 +79,9 @@ const MainPage = () => {
         toggleBasketStatus={toggleBasketStatus}
         addNewProduct={addNewProduct}
       />
-      {basketStatus && <Basket />}
+      {basketStatus && <Basket basket={basket} />}
     </main>
   );
 }
 
-export default MainPage;
+export default memo(MainPage);

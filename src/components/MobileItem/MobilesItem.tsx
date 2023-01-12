@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 
 import { IMobileItem } from "../../types/productItems";
 
@@ -7,11 +7,17 @@ import styles from './MobileItem.module.css';
 type Props = {
   mobile: IMobileItem;
   addNewProduct: (product: IMobileItem) => void;
+  toggleBasketStatus: (basketStatus: boolean) => void;
 }
 
-const MobileItem = ({ mobile, mobile: { image, model, price, memory }, addNewProduct }: Props) => {
+const MobileItem = ({
+  mobile, mobile: { image, model, price, memory },
+  addNewProduct,
+  toggleBasketStatus
+}: Props) => {
   const handleButton = () => {
     addNewProduct(mobile);
+    toggleBasketStatus(false);
   }
 
   return (
@@ -27,4 +33,4 @@ const MobileItem = ({ mobile, mobile: { image, model, price, memory }, addNewPro
   );
 }
 
-export default MobileItem;
+export default memo(MobileItem);

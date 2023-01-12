@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 
 import MobileItem from "../MobileItem/MobilesItem";
 
@@ -23,10 +23,15 @@ const MobilesList = ({ mobiles, basketStatus, addNewProduct, toggleBasketStatus 
       </div>
       
       <div className={styles.mobileList__items}>
-        {mobiles.map((mobile) => <MobileItem key={mobile.id} mobile={mobile} addNewProduct={addNewProduct} /> )}
+        {mobiles.map((mobile) => <MobileItem
+                                    key={mobile.id}
+                                    mobile={mobile}
+                                    addNewProduct={addNewProduct}
+                                    toggleBasketStatus={toggleBasketStatus}
+                                  />)}
       </div>
     </div>
   );
 }
 
-export default MobilesList;
+export default memo(MobilesList);

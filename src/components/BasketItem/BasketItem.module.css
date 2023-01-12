@@ -1,0 +1,27 @@
+.basketItem {
+  border: 1px solid rgba(128, 128, 128, 0.568);
+  box-shadow: 0 1px 3px rgba(128, 128, 128, 0.247);
+  border-radius: 15px;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+
+.basketItem__info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.basketItem__info div {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.basketItem__info img {
+  width: 50px;
+  height: auto;
+}
