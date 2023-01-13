@@ -6,3 +6,9 @@ export interface IMobileItem {
   memory: string,
   color: string
 }
+
+export interface IBasketItem {
+  id: number,
+  product: IMobileItem,
+  count: number,
+}

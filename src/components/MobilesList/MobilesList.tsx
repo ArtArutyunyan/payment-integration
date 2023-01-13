@@ -4,7 +4,6 @@ import MobileItem from "../MobileItem/MobilesItem";
 
 import { IMobileItem } from "../../types/productItems";
 
-import basket from '../../assets/images/basket.png';
 import styles from './MobilesList.module.css';
 
 type Props = {
@@ -19,7 +18,7 @@ const MobilesList = ({ mobiles, basketStatus, addNewProduct, toggleBasketStatus 
     <div className={styles.mobilesList}>
       <div className={styles.mobilesList__title}>
         <h2>Каталог товаров</h2>
-        <img src={basket} alt="img" onClick={() => toggleBasketStatus(!basketStatus)} />
+        <img  src="/assets/images/basket.png" alt="img" onClick={() => toggleBasketStatus(!basketStatus)} />
       </div>
       
       <div className={styles.mobileList__items}>

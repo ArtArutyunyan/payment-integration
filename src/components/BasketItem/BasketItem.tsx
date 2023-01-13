@@ -6,15 +6,14 @@ import styles from './BasketItem.module.css';
 
 type Props = {
   product: IMobileItem;
+  count: number;
 }
 
-const BasketItem = ({product: {image, model, price}}: Props) => {
-  const [count, editCount] = useState(1);
-
+const BasketItem = ({product: {image, model, price}, count}: Props) => {
   return (
     <div className={styles.basketItem}>
       <div className={styles.basketItem__info}>
-        <img src={image} alt="img" />
+        <img src={`/assets/images/${image}`} alt="img" />
         <div>
           <p>{model}</p>
           <p>{price}&#8381;</p>

@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import React, { memo, useState } from "react";
 
 import { IMobileItem } from "../../types/productItems";
 
@@ -22,13 +22,16 @@ const MobileItem = ({
 
   return (
     <div className={styles.mobileItem}>
-      <img src={image} alt="img" />
+      <img src={`/assets/images/${image}`} alt="img" />
       <div className={styles.mobileItem__info}>
         <p>Model: <span>{model}</span></p>
         <p>Memory: <span>{memory}</span></p>
         <p>Price: <span>{price}&#8381;</span></p>
       </div>
-      <button type="button" onClick={() => handleButton()}>В корзину</button>
+
+      <button type="button" onClick={() => handleButton()}>
+        В корзину
+      </button>
     </div>
   );
 }
