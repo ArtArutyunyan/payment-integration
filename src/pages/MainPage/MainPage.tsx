@@ -5,7 +5,7 @@ import Basket from "../../components/Basket/Basket";
 
 import { IMobileItem, IBasketItem } from '../../types/productItems';
 
-import mobiles from "../../constants/mobiles";
+import mobiles from "../../constants/mockData";
 
 import styles from './MainPage.module.css';
 

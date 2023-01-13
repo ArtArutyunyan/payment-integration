@@ -34,7 +34,7 @@ const Basket = ({ basket }: Props) => {
                 <b>{totalSum}&#8381;</b>
               </p>
 
-              <button type="button" onClick={() => console.log(123)}>Оплатить</button>
+              <button type="button" onClick={() => console.log(123)}>Перейти к оплате</button>
             </div>
       }
     </div>

@@ -9,8 +9,7 @@ type Props = {
   count: number;
 }
 
-const BasketItem = ({product: {image, model, price}, count}: Props) => {
-  return (
+const BasketItem = ({product: {image, model, price}, count}: Props) => (
     <div className={styles.basketItem}>
       <div className={styles.basketItem__info}>
         <img src={`/assets/images/${image}`} alt="img" />
@@ -22,6 +21,5 @@ const BasketItem = ({product: {image, model, price}, count}: Props) => {
       </div>
     </div>
   );
-}
 
 export default memo(BasketItem);

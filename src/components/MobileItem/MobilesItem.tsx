@@ -29,7 +29,7 @@ const MobileItem = ({
         <p>Price: <span>{price}&#8381;</span></p>
       </div>
 
-      <button type="button" onClick={() => handleButton()}>
+      <button type="button" onClick={handleButton}>
         В корзину
       </button>
     </div>
