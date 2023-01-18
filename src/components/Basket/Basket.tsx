@@ -1,21 +1,29 @@
-import React, { memo, useMemo } from "react";
+import React, { memo, useMemo, useState } from "react";
 
 import BasketItem from "../BasketItem/BasketItem";
 
 import { IBasketItem } from '../../types/productItems';
 
 import styles from './Basket.module.css';
+import StripePayment from "../StripePayment/StripePayment";
 
 type Props = {
-  basket: Array<IBasketItem>
+  basket: Array<IBasketItem>;
+  emptyBasket: () => void
 }
 
-const Basket = ({ basket }: Props) => {
+const Basket = ({ basket, emptyBasket }: Props) => {
+  const [paymentModalStatus, setPaymentModalStatus] = useState<boolean>(false);
+
   const totalSum = useMemo(() => {
     return basket.reduce((acc, item) => { 
       return item.product.price * item.count + acc;
     }, 0)
   }, [basket]);
+
+  const handlePaymentModalStatusButton = () => {
+    setPaymentModalStatus(!paymentModalStatus);
+  }
 
   return (
     <div className={styles.basket}>
@@ -34,8 +42,24 @@ const Basket = ({ basket }: Props) => {
                 <b>{totalSum}&#8381;</b>
               </p>
 
-              <button type="button" onClick={() => console.log(123)}>Перейти к оплате</button>
+              <button
+                type="button"
+                onClick={() => handlePaymentModalStatusButton()}
+                className={styles.paymentButton}
+              >
+                Перейти к оплате
+              </button>
             </div>
+      }
+      {
+        paymentModalStatus && 
+          <div className={styles.paymentModal}>
+            <button className={styles.closeButton} onClick={() => handlePaymentModalStatusButton()}>Закрыть</button>
+            <StripePayment
+              emptyBasket={emptyBasket}
+              totalSum={totalSum}
+            />
+          </div>
       }
     </div>
   );

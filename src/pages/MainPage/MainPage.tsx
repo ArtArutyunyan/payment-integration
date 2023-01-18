@@ -33,6 +33,11 @@ const MainPage = () => {
     }
   }
 
+  const emptyBasket = () => {
+    setBasket([]);
+    setTimeout(() => toggleBasketStatus(false), 2000);
+  }
+
   return (
     <main className={styles.mainPage}>
       <MobilesList
@@ -41,7 +46,7 @@ const MainPage = () => {
         toggleBasketStatus={toggleBasketStatus}
         addNewProduct={addNewProduct}
       />
-      {basketStatus && <Basket basket={basket} />}
+      {basketStatus && <Basket basket={basket} emptyBasket={emptyBasket} />}
     </main>
   );
 }
