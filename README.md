@@ -12,8 +12,10 @@ php artisan serve
 # use npm version 18
 nvm use 18
 
-# In command terminal ran 
+# In command terminal run 
 npm install
+
+# start the project
 npm start
 # Getting Started with Create React App
 
