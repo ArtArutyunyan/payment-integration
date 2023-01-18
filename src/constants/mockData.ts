@@ -47,6 +47,6 @@ const mobiles = [
     memory: "512Gb",
     color: "Red"
   }
-]
+];
 
 export default mobiles;

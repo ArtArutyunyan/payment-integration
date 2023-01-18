@@ -1,0 +1,3 @@
+const stripeTestKey = "pk_test_51MPmszHcNnwerndIg0OWihBHDfkfVde886x2OJIMFnIVtMRcEntWATvh1TfsKzrp6wCCucNDGdXZPwK67AsSLwIJ00TbW0XkAw";
+
+export default stripeTestKey;

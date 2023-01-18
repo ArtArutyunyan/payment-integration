@@ -1,10 +1,11 @@
-import React, { memo, useState } from "react";
+import React, { memo, useState, useEffect } from "react";
 
-import { IMobileItem } from "../../types/productItems";
+import { IMobileItem, IBasketItem } from "../../types/productItems";
 
 import styles from './MobileItem.module.css';
 
 type Props = {
+  basket: Array<IBasketItem>;
   mobile: IMobileItem;
   addNewProduct: (product: IMobileItem) => void;
   toggleBasketStatus: (basketStatus: boolean) => void;
@@ -12,9 +13,19 @@ type Props = {
 
 const MobileItem = ({
   mobile, mobile: { image, model, price, memory },
+  basket,
   addNewProduct,
   toggleBasketStatus
 }: Props) => {
+  const [count, setCount] = useState<number>(0);
+
+  useEffect(() => {
+    if(!basket.length) setCount(0);
+    basket.forEach(item => {
+      if(item.id === mobile.id) setCount(item.count)
+    });
+  }, [basket, mobile.id]);
+
   const handleButton = () => {
     addNewProduct(mobile);
     toggleBasketStatus(false);
@@ -30,7 +41,7 @@ const MobileItem = ({
       </div>
 
       <button type="button" onClick={handleButton}>
-        В корзину
+        {!count ? "В корзину" : `В корзине ${count} шт.`}
       </button>
     </div>
   );

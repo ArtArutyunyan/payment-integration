@@ -3,10 +3,11 @@ import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 
 import PaymentForm from "../PaymentForm/PaymentForm";
+import stripeTestKey from "../../constants/stripeKeys";
 
 import styles from "./StripePayment.module.css";
 
-const promise = loadStripe("pk_test_51MPmszHcNnwerndIg0OWihBHDfkfVde886x2OJIMFnIVtMRcEntWATvh1TfsKzrp6wCCucNDGdXZPwK67AsSLwIJ00TbW0XkAw");
+const promise = loadStripe(stripeTestKey);
 
 type Props = {
   totalSum: number;

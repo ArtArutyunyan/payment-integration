@@ -1,5 +1,6 @@
 import React, { useState, useEffect, memo } from "react";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
+import paymentIntentUrl from "../../constants/requestUrls";
 
 import styles from './PaymentForm.module.css';
 
@@ -19,7 +20,7 @@ const PaymentForm = ({totalSum, emptyBasket}: Props) => {
 
   useEffect(() => {
     window
-      .fetch("http://localhost:8000/api/create", {
+      .fetch(paymentIntentUrl, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -35,7 +36,7 @@ const PaymentForm = ({totalSum, emptyBasket}: Props) => {
       .then(data => {
         setClientSecret(data[0].clientSecret);
       });
-  }, []);
+  }, [totalSum]);
 
   const cardStyle = {
     style: {
