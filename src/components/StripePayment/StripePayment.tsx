@@ -14,14 +14,12 @@ type Props = {
   emptyBasket: () => void;
 }
 
-const StripePayment = ({totalSum, emptyBasket}: Props) => {
-  return (
+const StripePayment = ({totalSum, emptyBasket}: Props) => (
     <div className={styles.stripePayment}>
       <Elements stripe={promise}>
         <PaymentForm emptyBasket={emptyBasket} totalSum={totalSum} />
       </Elements>
     </div>
   );
-}
 
 export default memo(StripePayment);

@@ -2,7 +2,7 @@ import React, { useState, useEffect, memo } from "react";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import paymentIntentUrl from "../../constants/requestUrls";
 
-import styles from './PaymentForm.module.css';
+import styles from "./PaymentForm.module.css";
 
 type Props = {
   totalSum: number;

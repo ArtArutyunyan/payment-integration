@@ -1,11 +1,11 @@
 import React, { memo, useMemo, useState } from "react";
 
 import BasketItem from "../BasketItem/BasketItem";
-
-import { IBasketItem } from '../../types/productItems';
-
-import styles from './Basket.module.css';
 import StripePayment from "../StripePayment/StripePayment";
+
+import { IBasketItem } from "../../types/productItems";
+
+import styles from "./Basket.module.css";
 
 type Props = {
   basket: Array<IBasketItem>;
@@ -44,7 +44,7 @@ const Basket = ({ basket, emptyBasket }: Props) => {
 
               <button
                 type="button"
-                onClick={() => handlePaymentModalStatusButton()}
+                onClick={handlePaymentModalStatusButton}
                 className={styles.paymentButton}
               >
                 Перейти к оплате
@@ -54,7 +54,7 @@ const Basket = ({ basket, emptyBasket }: Props) => {
       {
         paymentModalStatus && 
           <div className={styles.paymentModal}>
-            <button className={styles.closeButton} onClick={() => handlePaymentModalStatusButton()}>Закрыть</button>
+            <button className={styles.closeButton} onClick={handlePaymentModalStatusButton}>Закрыть</button>
             <StripePayment
               emptyBasket={emptyBasket}
               totalSum={totalSum}
