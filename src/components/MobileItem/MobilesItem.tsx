@@ -1,6 +1,8 @@
 import React, { memo, useState, useEffect } from "react";
 
-import { IMobileItem, IBasketItem } from "../../types/productItems";
+import { IBasketItem } from "../../types/BasketItemInterface";
+import { IMobileItem } from "../../types/MobileItemInterface";
+
 
 import styles from './MobileItem.module.css';
 

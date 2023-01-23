@@ -3,7 +3,7 @@ import React, { memo, useMemo, useState } from "react";
 import BasketItem from "../BasketItem/BasketItem";
 import StripePayment from "../StripePayment/StripePayment";
 
-import { IBasketItem } from "../../types/productItems";
+import { IBasketItem } from "../../types/BasketItemInterface";
 
 import styles from "./Basket.module.css";
 

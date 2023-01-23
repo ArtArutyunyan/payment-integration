@@ -2,7 +2,8 @@ import React, { memo } from "react";
 
 import MobileItem from "../MobileItem/MobilesItem";
 
-import { IMobileItem, IBasketItem } from "../../types/productItems";
+import { IBasketItem } from "../../types/BasketItemInterface";
+import { IMobileItem } from "../../types/MobileItemInterface";
 
 import styles from './MobilesList.module.css';
 

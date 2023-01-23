@@ -3,7 +3,8 @@ import React, { useState, memo }  from "react";
 import MobilesList from "../../components/MobilesList/MobilesList";
 import Basket from "../../components/Basket/Basket";
 
-import { IMobileItem, IBasketItem } from '../../types/productItems';
+import { IBasketItem } from "../../types/BasketItemInterface";
+import { IMobileItem } from "../../types/MobileItemInterface";
 
 import mobiles from "../../constants/mockData";
 

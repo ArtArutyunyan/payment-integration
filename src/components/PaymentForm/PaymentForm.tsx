@@ -1,6 +1,5 @@
 import React, { useState, useEffect, memo } from "react";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
-import paymentIntentUrl from "../../constants/requestUrls";
 
 import styles from "./PaymentForm.module.css";
 
@@ -20,7 +19,7 @@ const PaymentForm = ({totalSum, emptyBasket}: Props) => {
 
   useEffect(() => {
     window
-      .fetch(paymentIntentUrl, {
+      .fetch(process.env.REACT_APP_STRIPE_PAYMENT_INTENT_URL as string, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -113,7 +112,11 @@ const PaymentForm = ({totalSum, emptyBasket}: Props) => {
 
           {processing
             ? <div className={styles.spinner} id="spinner"></div>
-            : <button disabled={processing || disabled || succeeded} id="submit" className={styles.submitButton}>
+            : <button
+                disabled={processing || disabled || succeeded}
+                id="submit"
+                className={styles.submitButton}
+              >
                 Оплатить
               </button>
           }

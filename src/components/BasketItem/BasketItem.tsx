@@ -1,8 +1,8 @@
-import React, { memo, useState } from "react";
+import React, { memo } from "react";
 
-import { IMobileItem } from "../../types/productItems";
+import { IMobileItem } from "../../types/MobileItemInterface";
 
-import styles from './BasketItem.module.css';
+import styles from "./BasketItem.module.css";
 
 type Props = {
   product: IMobileItem;
